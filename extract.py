@@ -15,10 +15,8 @@ def main(args: argparse.Namespace) -> None:
             tree = etree.parse(source, parser)
             # Selects the text of the first (and only) <pre> tag with
             # id="jspsych-data-display".
-            contents = tree.xpath("//pre[@id='jspsych-data-display']/text()")[
-                0
-            ]
-            print(contents, file=sink, end="")
+            text = tree.xpath("//pre[@id='jspsych-data-display']/text()")[0]
+            print(text, file=sink, end="")
 
 
 if __name__ == "__main__":
